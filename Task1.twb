@@ -1,0 +1,2263 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10300.17.0728.2252                               -->
+<workbook original-version='10.3' source-build='10.3.2 (10300.17.0728.2252)' source-platform='win' version='10.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='flights+ (uwhw)' inline='true' name='federated.1gfgaku1xv0te81gaa9ib0psk3c7' version='10.3'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='localhost' name='mysql.1eap4301le2r901dcusrl172mllk'>
+            <connection class='mysql' dbname='uwhw' odbc-native-protocol='' one-time-sql='' port='3306' server='localhost' source-charset='' username='root' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[flights].[dest]' />
+              <expression op='[airports].[faa]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[flights].[carrier]' />
+                <expression op='[airlines].[carrier]' />
+              </expression>
+            </clause>
+            <relation join='inner' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[flights].[tailnum]' />
+                  <expression op='[planes].[tailnum]' />
+                </expression>
+              </clause>
+              <relation connection='mysql.1eap4301le2r901dcusrl172mllk' name='flights' table='[flights]' type='table' />
+              <relation connection='mysql.1eap4301le2r901dcusrl172mllk' name='planes' table='[planes]' type='table' />
+            </relation>
+            <relation connection='mysql.1eap4301le2r901dcusrl172mllk' name='airlines' table='[airlines]' type='table' />
+          </relation>
+          <relation connection='mysql.1eap4301le2r901dcusrl172mllk' name='airports' table='[airports]' type='table' />
+        </relation>
+        <cols>
+          <map key='[air_time]' value='[flights].[air_time]' />
+          <map key='[alt]' value='[airports].[alt]' />
+          <map key='[arr_delay]' value='[flights].[arr_delay]' />
+          <map key='[arr_time]' value='[flights].[arr_time]' />
+          <map key='[carrier (airlines)]' value='[airlines].[carrier]' />
+          <map key='[carrier]' value='[flights].[carrier]' />
+          <map key='[day]' value='[flights].[day]' />
+          <map key='[dep_delay]' value='[flights].[dep_delay]' />
+          <map key='[dep_time]' value='[flights].[dep_time]' />
+          <map key='[dest]' value='[flights].[dest]' />
+          <map key='[distance]' value='[flights].[distance]' />
+          <map key='[dst]' value='[airports].[dst]' />
+          <map key='[engine]' value='[planes].[engine]' />
+          <map key='[engines]' value='[planes].[engines]' />
+          <map key='[faa]' value='[airports].[faa]' />
+          <map key='[flight]' value='[flights].[flight]' />
+          <map key='[hour]' value='[flights].[hour]' />
+          <map key='[lat]' value='[airports].[lat]' />
+          <map key='[lon]' value='[airports].[lon]' />
+          <map key='[manufacturer]' value='[planes].[manufacturer]' />
+          <map key='[minute]' value='[flights].[minute]' />
+          <map key='[model]' value='[planes].[model]' />
+          <map key='[month]' value='[flights].[month]' />
+          <map key='[name (airports)]' value='[airports].[name]' />
+          <map key='[name]' value='[airlines].[name]' />
+          <map key='[origin]' value='[flights].[origin]' />
+          <map key='[seats]' value='[planes].[seats]' />
+          <map key='[speed]' value='[planes].[speed]' />
+          <map key='[tailnum (planes)]' value='[planes].[tailnum]' />
+          <map key='[tailnum]' value='[flights].[tailnum]' />
+          <map key='[type]' value='[planes].[type]' />
+          <map key='[tz]' value='[airports].[tz]' />
+          <map key='[year (planes)]' value='[planes].[year]' />
+          <map key='[year]' value='[flights].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>day</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[day]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>day</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dep_time</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[dep_time]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>dep_time</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dep_delay</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[dep_delay]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>dep_delay</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>arr_time</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[arr_time]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>arr_time</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>arr_delay</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[arr_delay]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>arr_delay</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>carrier</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[carrier]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>carrier</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tailnum</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[tailnum]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>tailnum</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>6</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>flight</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[flight]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>flight</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>origin</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[origin]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>origin</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>3</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dest</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[dest]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>dest</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>3</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>air_time</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[air_time]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>air_time</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>distance</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[distance]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>distance</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hour</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[hour]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>hour</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>minute</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[minute]</local-name>
+            <parent-name>[flights]</parent-name>
+            <remote-alias>minute</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tailnum</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[tailnum (planes)]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>tailnum</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>6</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (planes)]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>manufacturer</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[manufacturer]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>manufacturer</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>model</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[model]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>model</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>engines</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[engines]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>engines</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seats</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[seats]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>seats</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>speed</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[speed]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>speed</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>engine</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[engine]</local-name>
+            <parent-name>[planes]</parent-name>
+            <remote-alias>engine</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>carrier</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[carrier (airlines)]</local-name>
+            <parent-name>[airlines]</parent-name>
+            <remote-alias>carrier</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[airlines]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>30</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>faa</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[faa]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>faa</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>3</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[name (airports)]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[lat]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>lat</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lon</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[lon]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>lon</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>alt</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[alt]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>alt</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tz</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[tz]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>tz</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dst</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[dst]</local-name>
+            <parent-name>[airports]</parent-name>
+            <remote-alias>dst</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column aggregation='None' datatype='integer' name='[Number of Records (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='0' formula='[Number of Records]' peg='0' size='1' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[day]' role='dimension' type='quantitative' />
+      <column aggregation='Avg' datatype='real' name='[lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' datatype='real' name='[lon]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column datatype='integer' name='[month]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[year (planes)]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection class='dataengine' dbname='C:/Users/d/Documents/My Tableau Repository/Datasources/flights+ (uwhw).tde' schema='Extract' tablename='Extract' update-time='08/30/2017 04:54:31 PM'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Number of Records]' value='[Extract].[Number of Records]' />
+            <map key='[air_time]' value='[Extract].[air_time]' />
+            <map key='[alt]' value='[Extract].[alt]' />
+            <map key='[arr_delay]' value='[Extract].[arr_delay]' />
+            <map key='[arr_time]' value='[Extract].[arr_time]' />
+            <map key='[carrier (airlines)]' value='[Extract].[carrier]' />
+            <map key='[carrier]' value='[Extract].[carrier1]' />
+            <map key='[day]' value='[Extract].[day]' />
+            <map key='[dep_delay]' value='[Extract].[dep_delay]' />
+            <map key='[dep_time]' value='[Extract].[dep_time]' />
+            <map key='[dest]' value='[Extract].[dest]' />
+            <map key='[distance]' value='[Extract].[distance]' />
+            <map key='[dst]' value='[Extract].[dst]' />
+            <map key='[engine]' value='[Extract].[engine]' />
+            <map key='[engines]' value='[Extract].[engines]' />
+            <map key='[faa]' value='[Extract].[faa]' />
+            <map key='[flight]' value='[Extract].[flight]' />
+            <map key='[hour]' value='[Extract].[hour]' />
+            <map key='[lat]' value='[Extract].[lat]' />
+            <map key='[lon]' value='[Extract].[lon]' />
+            <map key='[manufacturer]' value='[Extract].[manufacturer]' />
+            <map key='[minute]' value='[Extract].[minute]' />
+            <map key='[model]' value='[Extract].[model]' />
+            <map key='[month]' value='[Extract].[month]' />
+            <map key='[name (airports)]' value='[Extract].[name]' />
+            <map key='[name]' value='[Extract].[name1]' />
+            <map key='[origin]' value='[Extract].[origin]' />
+            <map key='[seats]' value='[Extract].[seats]' />
+            <map key='[speed]' value='[Extract].[speed]' />
+            <map key='[tailnum (planes)]' value='[Extract].[tailnum]' />
+            <map key='[tailnum]' value='[Extract].[tailnum1]' />
+            <map key='[type]' value='[Extract].[type]' />
+            <map key='[tz]' value='[Extract].[tz]' />
+            <map key='[year (planes)]' value='[Extract].[year]' />
+            <map key='[year]' value='[Extract].[year1]' />
+          </cols>
+          <calculations>
+            <calculation column='[Number of Records]' formula='1' />
+          </calculations>
+          <refresh>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='277977' timestamp-start='2017-08-30 16:54:31.813' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Number of Records</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[Number of Records]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Records</remote-alias>
+              <ordinal>0</ordinal>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+                <statistic aggregation='Median' datatype='integer'>1</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>air_time</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[air_time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>air_time</remote-alias>
+              <ordinal>1</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>508</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>695</statistic>
+                <statistic aggregation='Count' datatype='integer'>272870</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>27</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>alt</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[alt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>alt</remote-alias>
+              <ordinal>2</ordinal>
+              <family>airports</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>91</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>3</statistic>
+                <statistic aggregation='Max' datatype='integer'>6602</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>23</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>arr_delay</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[arr_delay]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>arr_delay</remote-alias>
+              <ordinal>3</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>561</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>1272</statistic>
+                <statistic aggregation='Count' datatype='integer'>272870</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>29</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>arr_time</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[arr_time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>arr_time</remote-alias>
+              <ordinal>4</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1346</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>2400</statistic>
+                <statistic aggregation='Count' datatype='integer'>273454</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>31</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>carrier</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[carrier (airlines)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>carrier</remote-alias>
+              <ordinal>5</ordinal>
+              <family>airlines</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16</approx-count>
+              <scale>1</scale>
+              <width>2</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;9E&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;YV&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>5</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>carrier1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[carrier]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>carrier1</remote-alias>
+              <ordinal>6</ordinal>
+              <family>flights</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16</approx-count>
+              <scale>1</scale>
+              <width>2</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;9E&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;YV&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>6</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>day</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[day]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>day</remote-alias>
+              <ordinal>7</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>31</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>4367225.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>15.710742255654244</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>31</statistic>
+                <statistic aggregation='Stdev' datatype='real'>8.7683870290211914</statistic>
+                <statistic aggregation='StdevP' datatype='real'>8.7683712572218795</statistic>
+                <statistic aggregation='Var' datatype='real'>76.884611090707082</statistic>
+                <statistic aggregation='VarP' datatype='real'>76.884334504474793</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>89984423.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dep_delay</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[dep_delay]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dep_delay</remote-alias>
+              <ordinal>8</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>515</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>1301</statistic>
+                <statistic aggregation='Count' datatype='integer'>273805</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>28</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dep_time</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[dep_time]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dep_time</remote-alias>
+              <ordinal>9</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1305</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>2400</statistic>
+                <statistic aggregation='Count' datatype='integer'>273805</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>30</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dest</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[dest]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dest</remote-alias>
+              <ordinal>10</ordinal>
+              <family>flights</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>100</approx-count>
+              <scale>1</scale>
+              <width>3</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;ABQ&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;XNA&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>12</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>11</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>distance</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[distance]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>distance</remote-alias>
+              <ordinal>11</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>205</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>80</statistic>
+                <statistic aggregation='Max' datatype='integer'>4983</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>26</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dst</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[dst]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dst</remote-alias>
+              <ordinal>12</ordinal>
+              <family>airports</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <scale>1</scale>
+              <width>1</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;A&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;N&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+                <statistic aggregation='Median' datatype='string'>&quot;A&quot;</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>0</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>engine</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[engine]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>engine</remote-alias>
+              <ordinal>13</ordinal>
+              <family>planes</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <scale>1</scale>
+              <width>50</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;4 Cycle&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Turbo-shaft&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>3</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>engines</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[engines]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>engines</remote-alias>
+              <ordinal>14</ordinal>
+              <family>planes</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>4</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>17</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>faa</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[faa]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>faa</remote-alias>
+              <ordinal>15</ordinal>
+              <family>airports</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>100</approx-count>
+              <scale>1</scale>
+              <width>3</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;ABQ&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;XNA&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>12</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>12</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>flight</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[flight]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>flight</remote-alias>
+              <ordinal>16</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3789</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>8500</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>32</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hour</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[hour]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>hour</remote-alias>
+              <ordinal>17</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>26</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>24</statistic>
+                <statistic aggregation='Count' datatype='integer'>273805</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>20</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lat</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[lat]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lat</remote-alias>
+              <ordinal>18</ordinal>
+              <family>airports</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>100</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='real'>21.318681000000002</statistic>
+                <statistic aggregation='Max' datatype='real'>61.174360999999998</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>24</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lon</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[lon]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lon</remote-alias>
+              <ordinal>19</ordinal>
+              <family>airports</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>100</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='real'>-157.922428</statistic>
+                <statistic aggregation='Max' datatype='real'>-68.828138999999993</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>25</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>manufacturer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[manufacturer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>manufacturer</remote-alias>
+              <ordinal>20</ordinal>
+              <family>planes</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>35</approx-count>
+              <scale>1</scale>
+              <width>50</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;AGUSTA SPA&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;STEWART MACO&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>9</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>minute</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[minute]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>minute</remote-alias>
+              <ordinal>21</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>61</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Max' datatype='integer'>59</statistic>
+                <statistic aggregation='Count' datatype='integer'>273805</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>22</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>model</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[model]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>model</remote-alias>
+              <ordinal>22</ordinal>
+              <family>planes</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>127</approx-count>
+              <scale>1</scale>
+              <width>50</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;150&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;ZODIAC 601HDS&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>14</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>month</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>month</remote-alias>
+              <ordinal>23</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>12</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>4</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name (airports)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>24</ordinal>
+              <family>airports</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>100</approx-count>
+              <scale>1</scale>
+              <width>100</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Akron Canton Regional Airport&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Yeager&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>400</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>13</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>name1</remote-alias>
+              <ordinal>25</ordinal>
+              <family>airlines</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16</approx-count>
+              <scale>1</scale>
+              <width>30</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;AirTran Airways Corporation&#13;&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Virgin America&#13;&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>120</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>7</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>origin</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[origin]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>origin</remote-alias>
+              <ordinal>26</ordinal>
+              <family>flights</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <scale>1</scale>
+              <width>3</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;EWR&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;LGA&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>12</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seats</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[seats]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seats</remote-alias>
+              <ordinal>27</ordinal>
+              <family>planes</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>48</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>2</statistic>
+                <statistic aggregation='Max' datatype='integer'>450</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>21</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>speed</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[speed]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>speed</remote-alias>
+              <ordinal>28</ordinal>
+              <family>planes</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>90</statistic>
+                <statistic aggregation='Max' datatype='integer'>432</statistic>
+                <statistic aggregation='Count' datatype='integer'>949</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>19</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tailnum</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tailnum (planes)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tailnum</remote-alias>
+              <ordinal>29</ordinal>
+              <family>planes</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3322</approx-count>
+              <scale>1</scale>
+              <width>6</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;N10156&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;N999DN&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>24</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>15</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tailnum1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tailnum]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tailnum1</remote-alias>
+              <ordinal>30</ordinal>
+              <family>flights</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3322</approx-count>
+              <scale>1</scale>
+              <width>6</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;N10156&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;N999DN&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>24</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>16</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>type</remote-alias>
+              <ordinal>31</ordinal>
+              <family>planes</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <scale>1</scale>
+              <width>50</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LROOT' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Fixed wing multi engine&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Rotorcraft&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;root&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>200</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tz</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[tz]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tz</remote-alias>
+              <ordinal>32</ordinal>
+              <family>airports</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>-10</statistic>
+                <statistic aggregation='Max' datatype='integer'>-5</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>18</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[year (planes)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>33</ordinal>
+              <family>planes</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>47</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>1956</statistic>
+                <statistic aggregation='Max' datatype='integer'>2013</statistic>
+                <statistic aggregation='Count' datatype='integer'>272754</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>10</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year1</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>year1</remote-alias>
+              <ordinal>34</ordinal>
+              <family>flights</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='integer'>2013</statistic>
+                <statistic aggregation='Max' datatype='integer'>2013</statistic>
+                <statistic aggregation='Count' datatype='integer'>277977</statistic>
+                <statistic aggregation='Median' datatype='integer'>2013</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.63602' measure-ordering='alphabetic' measure-percentage='0.36398' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Lithuania&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <filter class='quantitative' column='[month]' filter-group='2' included-values='in-range'>
+        <min>1</min>
+        <max>3</max>
+      </filter>
+      <filter class='quantitative' column='[year]' filter-group='2' included-values='in-range'>
+        <min>2013</min>
+        <max>2013</max>
+      </filter>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Task1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Most frequent destinations in 2013 Q1</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='flights+ (uwhw)' name='federated.1gfgaku1xv0te81gaa9ib0psk3c7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gfgaku1xv0te81gaa9ib0psk3c7'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Number of Records]' derivation='Count' name='[cnt:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[name (airports)]' role='dimension' type='nominal' />
+            <column-instance column='[name (airports)]' derivation='None' name='[none:name (airports):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[cnt:Number of Records:qk]</rows>
+        <cols>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name (airports):nk]</cols>
+        <show-full-range>
+          <column>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[Number of Records (bin)]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+    <worksheet name='Task2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Airlines with most flights in Q1 by months</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='flights+ (uwhw)' name='federated.1gfgaku1xv0te81gaa9ib0psk3c7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gfgaku1xv0te81gaa9ib0psk3c7'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[month]' derivation='None' name='[none:month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[sum:Number of Records:qk]</rows>
+        <cols>([federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name:nk] / [federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:month:ok])</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Task1'>
+      <cards>
+        <edge name='left'>
+          <strip size='156'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name (airports):nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Task2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:carrier (airlines):nk]</field>
+            <field>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:month:qk]</field>
+            <field>[federated.1gfgaku1xv0te81gaa9ib0psk3c7].[none:name:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Task1' width='192'>
+      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
+      vcL3/weCZqfEB1MCpgAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Task2' width='192'>
+      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
+      AAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
